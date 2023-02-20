@@ -1,0 +1,13 @@
+<launch>
+
+  <arg name="manager_name" default="nodelet_manager" />
+
+  <node pkg="nodelet" type="nodelet" name="$(arg manager_name)" args="manager" output="screen"/>
+
+  <rosparam command="load" file="$(find nhk23_1st_video)/launch/config.yaml"/>
+  <node pkg="nodelet" type="nodelet" name="adhoc_can_bridge" args="load adhoc_canplugins_onehalf/AdhocCanPluginsBridgeNode $(arg manager_name)" />
+  <node pkg="nodelet" type="nodelet" name="undercarriage" args="load omni4/Omni4Node $(arg manager_name)" />
+  <node pkg="nodelet" type="nodelet" name="momotarou" args="load nhk23_1st_video/MomotarouNode $(arg manager_name)" />
+  <node name="joynode" pkg="joy" type="joy_node" />
+
+</launch>

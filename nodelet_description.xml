@@ -1,0 +1,10 @@
+<library path="lib/libnhk23_1st_video">
+
+  <class name="nhk23_1st_video/MomotarouNode"
+     type="momotarou_node::MomotarouNode"
+     base_class_type="nodelet::Nodelet">
+    <description>
+    </description>
+  </class>
+
+</library>
